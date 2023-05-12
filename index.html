@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main_form{
+        height: 500px;
+        width: 500px;
+        background-image: url(1176.jpg);
+        
+    }
+    .heading{
+        margin: 40px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: 200%;
+    }
+    .form{
+        align-items: center;
+        font-weight: bold;
+        margin: 25px;
+        display: grid;
+        height: 20%;
+        width: 80%;
+    }
+    .buttons{
+        display: grid;
+        gap: 1rem;
+        
+    }
+</style>
+<body>
+    <!--<img src="4002676.jpg" alt="please refresh the page"-->
+    <div class="container">
+        <div class="main_form" >
+          <!--  <img src="1176.jpg" class="form_background">-->
+          <header class="heading">
+            <p>User Registration Form</p>
+          </header>
+          <form class="form">
+          <label for="Name">Please Enter your full Name:</label>
+          <input type="text" name="Name" id=""Name> <br>
+          <label for="id">Please enter your Id No</label>
+          <input type="number" name="id" id="id"><br>
+          <label for="Country">Country</label>
+          <select name="countries" id="countries">
+            <option value="Kenya">Kenya</option>
+            <option value="Uganda">Uganda</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Rwanda">Rwanda</option>
+          </select>
+          <br>
+          <label for="languages">Languages</label>
+          <input type="text" name="languages" id="languages">
+          <br>
+          <div class="buttons">
+          <button onclick="CreateUser">create</button>
+          <button onclick="ReadUser">Read</button>
+          <button onclick="UpdateUser">Update</button>
+          <button onclick="DeleteUser">Delete</button>
+          </div>
+          </form>
+
+    </div>
+    <script>
+        // Define global variables
+let users = [];
+let editIndex = -1;
+
+// Function to add a user
+function addUser() {
+	// Get form values
+	let Name = document.getElementById("Name").value;
+	let id = document.getElementById("id").value;
+	let Country = document.getElementById("Country").value;
+	let languages = document.getElementById("languages").value;
+
+	// Check if user is being edited or added
+	if (editIndex >= 0) {
+		// Update existing user
+		users[editIndex].Name = Name;
+		users[editIndex].id = id_number;
+		users[editIndex].Country = Country;
+		users[editIndex].languages = languages;
+		editIndex = -1
+
+    </script>
+</body>
+</html>
