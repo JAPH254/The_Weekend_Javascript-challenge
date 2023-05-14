@@ -11,11 +11,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
     }
     .main_form{
-        height: 500px;
+        height: 630px;
         width: 500px;
         background-image: url(1176.jpg);
+        border: 5px solid;
+        border-color: blueviolet;
         
     }
     .heading{
@@ -37,8 +40,11 @@
         gap: 1rem;
         
     }
+    .table{
+        border: 1px solid;
+    }
 </style>
-<body>
+<body style="background-image: url(4002676.jpg);">
     <!--<img src="4002676.jpg" alt="please refresh the page"-->
     <div class="container">
         <div class="main_form" >
@@ -48,11 +54,11 @@
           </header>
           <form class="form">
           <label for="Name">Please Enter your full Name:</label>
-          <input type="text" name="Name" id=""Name> <br>
+          <input type="text" name="Name" id="Name" placeholder="Full Name"> <br>
           <label for="id">Please enter your Id No</label>
-          <input type="number" name="id" id="id"><br>
+          <input type="number" name="id" id="id" placeholder="Id Number"><br>
           <label for="Country">Country</label>
-          <select name="countries" id="countries">
+          <select name="countries" id="Countries">
             <option value="Kenya">Kenya</option>
             <option value="Uganda">Uganda</option>
             <option value="Tanzania">Tanzania</option>
@@ -60,38 +66,86 @@
           </select>
           <br>
           <label for="languages">Languages</label>
-          <input type="text" name="languages" id="languages">
+          <input type="text" name="Languages" id="Languages" placeholder="Languages">
           <br>
           <div class="buttons">
-          <button onclick="CreateUser">create</button>
-          <button onclick="ReadUser">Read</button>
-          <button onclick="UpdateUser">Update</button>
-          <button onclick="DeleteUser">Delete</button>
+          <button onclick="CreateUser" id="create">create</button>
+          <button onclick="ReadUser" id="Read">Read</button>
+          <button onclick="UpdateUser" id="Update">Update</button>
+          <button onclick="DeleteUser" id="Delete">Delete</button>
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Id No</th>
+                    <th>Country</th>
+                    <th>Language</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
           </div>
           </form>
 
     </div>
     <script>
-        // Define global variables
-let users = [];
-let editIndex = -1;
+        let Name = document.getElementById("Name");
+        let id = document.getElementById("id");
+        let Countries = document.getElementById("Countries");
+        let Languages = document.getElementById("Languages");
 
-// Function to add a user
-function addUser() {
-	// Get form values
-	let Name = document.getElementById("Name").value;
-	let id = document.getElementById("id").value;
-	let Country = document.getElementById("Country").value;
-	let languages = document.getElementById("languages").value;
+        form. addEventListener ("create", (e) => {
+            e.preventDefault();
+            console.log("button clicked");
 
-	// Check if user is being edited or added
-	if (editIndex >= 0) {
-		// Update existing user
-		users[editIndex].Name = Name;
-		users[editIndex].id = id_number;
-		users[editIndex].Country = Country;
-		users[editIndex].languages = languages;
-		editIndex = -1
+            formValidation();
+        });
+
+        let formValidation = () =>{
+            if (input.value === "") {
+                msg.innerHTML = "Post cannot be Blank";
+                console.log("failure");
+            }
+            else{
+                console.log("success");
+                msg.innerHTML ="";
+            }
+        };
+        let mydata ={};
+        let acceptdata = () => {
+            data["text"] = input.value;
+            console.log(data)
+        };
+        let createPost=() =>{
+            posts.innerHTML += 
+            <div>
+                <p>${mydata.text}</p>
+                <span class ="options">
+                    <i onClick="update(this)" class="Update"></i>
+                    <i onClick="delete(this)" class="delete"></i>
+                    </span>
+                    </div>                
+            
+            input.value ="";
+        };
+        let acceptData=() => {
+            createPost();
+        };
+        let deletepost=(e) => {};
+        <i onClick ="deletepost(this)" class "delete"></i>
+        let deletepost = (e) => {
+            e.parentElement.remove();
+
+        };
+        let editpost = (e) => {
+            input.value = e.parentElement.previousElementSibling.innerHTML;
+            e.parentElement.parentElement.remove();
+        };
+        <i onClick ="editpost(this)" class ="update"></i>
+
+
+
 
     </script>
 </body>
